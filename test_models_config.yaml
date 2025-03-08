@@ -1,0 +1,143 @@
+all_models:
+- llama3:8b-instruct-fp16
+- deepseek-coder:6.7b
+- llama3:8b
+- nomic-embed-text:latest
+- qwen2.5:14b
+- deepseek-r1:14b
+- gdisney/mistral-uncensored:latest
+- wizard-vicuna-uncensored:13b
+- llama3.2:latest
+default_embedding_model: nomic-embed-text
+default_generation_model: llama3:8b-instruct-fp16
+models_by_family:
+  llama:
+  - details:
+      families:
+      - llama
+      family: llama
+      format: gguf
+      parameter_size: 8.0B
+      parent_model: ''
+      quantization_level: F16
+    digest: c666fe422df7d438104ce2ff06d99a567576f5369985a6e928bbee58ec86928f
+    model: llama3:8b-instruct-fp16
+    modified_at: '2025-03-05T17:30:20.792508662+08:00'
+    name: llama3:8b-instruct-fp16
+    size: 16068904163
+  - details:
+      families:
+      - llama
+      family: llama
+      format: gguf
+      parameter_size: 7B
+      parent_model: ''
+      quantization_level: Q4_0
+    digest: ce298d984115b93bb1b191b47fee6b39e4e9fbd5f18e651c02f9fa74e0edcd13
+    model: deepseek-coder:6.7b
+    modified_at: '2025-02-23T10:35:57.333544947+08:00'
+    name: deepseek-coder:6.7b
+    size: 3827834503
+  - details:
+      families:
+      - llama
+      family: llama
+      format: gguf
+      parameter_size: 8.0B
+      parent_model: ''
+      quantization_level: Q4_0
+    digest: 365c0bd3c000a25d28ddbf732fe1c6add414de7275464c4e4d1c3b5fcb5d8ad1
+    model: llama3:8b
+    modified_at: '2025-02-22T13:39:44.307424182+08:00'
+    name: llama3:8b
+    size: 4661224676
+  - details:
+      families:
+      - llama
+      family: llama
+      format: gguf
+      parameter_size: 7B
+      parent_model: ''
+      quantization_level: Q4_0
+    digest: 0df66937f0f61454806c7efec4a3d6867615cc4f9603ad43c2028ff8e4acc049
+    model: gdisney/mistral-uncensored:latest
+    modified_at: '2024-11-29T09:50:16.945334188+08:00'
+    name: gdisney/mistral-uncensored:latest
+    size: 4108918972
+  - details:
+      families: null
+      family: llama
+      format: gguf
+      parameter_size: 13B
+      parent_model: ''
+      quantization_level: Q4_0
+    digest: 6887722b661837283fb4409beb9b6eb155e2146770172ad2392d9b707ff5e9fa
+    model: wizard-vicuna-uncensored:13b
+    modified_at: '2024-11-29T09:21:44.560141362+08:00'
+    name: wizard-vicuna-uncensored:13b
+    size: 7365835082
+  - details:
+      families:
+      - llama
+      family: llama
+      format: gguf
+      parameter_size: 3.2B
+      parent_model: ''
+      quantization_level: Q4_K_M
+    digest: a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72
+    model: llama3.2:latest
+    modified_at: '2024-11-29T09:17:06.088441538+08:00'
+    name: llama3.2:latest
+    size: 2019393189
+  nomic-bert:
+  - details:
+      families:
+      - nomic-bert
+      family: nomic-bert
+      format: gguf
+      parameter_size: 137M
+      parent_model: ''
+      quantization_level: F16
+    digest: 0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f
+    model: nomic-embed-text:latest
+    modified_at: '2025-02-22T13:30:13.970028052+08:00'
+    name: nomic-embed-text:latest
+    size: 274302450
+  qwen2:
+  - details:
+      families:
+      - qwen2
+      family: qwen2
+      format: gguf
+      parameter_size: 14.8B
+      parent_model: ''
+      quantization_level: Q4_K_M
+    digest: 7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6
+    model: qwen2.5:14b
+    modified_at: '2025-02-18T12:26:25.820328342+08:00'
+    name: qwen2.5:14b
+    size: 8988124069
+  - details:
+      families:
+      - qwen2
+      family: qwen2
+      format: gguf
+      parameter_size: 14.8B
+      parent_model: ''
+      quantization_level: Q4_K_M
+    digest: ea35dfe18182f635ee2b214ea30b7520fe1ada68da018f8b395b444b662d4f1a
+    model: deepseek-r1:14b
+    modified_at: '2025-02-12T06:47:29.222850723+08:00'
+    name: deepseek-r1:14b
+    size: 8988112040
+preferred_models:
+  coding:
+  - deepseek-coder:6.7b
+  - llama3:8b-instruct-fp16
+  embedding:
+  - nomic-embed-text
+  - granite-embedding:278m
+  generation:
+  - llama3:8b-instruct-fp16
+  - llama3:8b
+  - deepseek-coder:6.7b

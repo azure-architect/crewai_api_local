@@ -1,81 +1,69 @@
-#!/usr/bin/env python3
-"""Test runner for the crew-local project."""
-
+# tests/crew/run_tests.py
 import os
 import sys
 import unittest
-import argparse
 from pathlib import Path
 
+def setup_paths():
+    """Setup correct Python paths for importing modules."""
+    # Get the project root directory (two levels up from this script)
+    script_dir = Path(__file__).parent.absolute()
+    project_root = script_dir.parent.parent.absolute()
+    
+    # Remove any duplicate paths
+    if str(project_root) in sys.path:
+        sys.path.remove(str(project_root))
+    
+    # Add project root to sys.path FIRST to ensure it's found before any other paths
+    sys.path.insert(0, str(project_root))
+    
+    print(f"Project root added to Python path: {project_root}")
+    
+    # Verify imports work
+    try:
+        import crew
+        print("✓ Successfully imported crew package")
+        
+        import crew.interfaces
+        print("✓ Successfully imported crew.clients package")
+        
+        from crew.interfaces import prompt_loader
+        print("✓ Successfully imported prompt_loader module")
+        
+        print("All required modules imported successfully!")
+    except ImportError as e:
+        print(f"❌ Import failed: {e}")
+        
+        # Display directory structure for debugging
+        print("\nCrew package structure:")
+        crew_dir = project_root / "crew"
+        for root, dirs, files in os.walk(crew_dir):
+            level = root.replace(str(project_root), '').count(os.sep)
+            indent = ' ' * 4 * level
+            print(f"{indent}{os.path.basename(root)}/")
+            sub_indent = ' ' * 4 * (level + 1)
+            for file in files:
+                print(f"{sub_indent}{file}")
 
-def discover_and_run_tests(test_path=None, pattern=None, verbosity=2):
-    """Discover and run tests from the specified path."""
-    # Set default test path if not provided
-    if test_path is None:
-        test_path = os.path.dirname(os.path.abspath(__file__))
-    
-    # Set default pattern if not provided
-    if pattern is None:
-        pattern = 'test_*.py'
-    
-    # Discover tests
+def run_tests():
+    """Run all test modules in the current directory."""
+    # Discover and run tests
     loader = unittest.TestLoader()
-    test_suite = loader.discover(test_path, pattern=pattern)
+    start_dir = os.path.dirname(os.path.abspath(__file__))
+    suite = loader.discover(start_dir, pattern="test_*.py")
     
-    # Run tests
-    runner = unittest.TextTestRunner(verbosity=verbosity)
-    result = runner.run(test_suite)
-    
-    # Return exit code based on test results
-    return 0 if result.wasSuccessful() else 1
-
-
-def run_specific_test(test_path, verbosity=2):
-    """Run a specific test file."""
-    # Check if the file exists
-    if not os.path.exists(test_path):
-        print(f"Error: Test file '{test_path}' not found.")
-        return 1
-    
-    # Get the directory and filename
-    directory = os.path.dirname(test_path) or '.'
-    filename = os.path.basename(test_path)
-    
-    # Run the specific test
-    return discover_and_run_tests(directory, filename, verbosity)
-
-
-def main():
-    """Main entry point for the test runner."""
-    parser = argparse.ArgumentParser(description='Run tests for crew-local project')
-    parser.add_argument(
-        'test_path', 
-        nargs='?', 
-        help='Path to a specific test file or directory to run tests from'
-    )
-    parser.add_argument(
-        '--pattern', '-p',
-        default='test_*.py',
-        help='Pattern to match test files (default: test_*.py)'
-    )
-    parser.add_argument(
-        '--verbose', '-v',
-        action='count',
-        default=1,
-        help='Increase verbosity (can be used multiple times)'
-    )
-    
-    args = parser.parse_args()
-    
-    # Add the project root to the Python path
-    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-    
-    # Determine if running a specific test file or discovering tests
-    if args.test_path and os.path.isfile(args.test_path):
-        return run_specific_test(args.test_path, args.verbose + 1)
-    else:
-        return discover_and_run_tests(args.test_path, args.pattern, args.verbose + 1)
-
+    # Run the tests
+    runner = unittest.TextTestRunner()
+    return runner.run(suite)
 
 if __name__ == "__main__":
-    sys.exit(main())
+    print("Starting test runner...")
+    
+    # Setup import paths before running tests
+    setup_paths()
+    
+    # Run tests
+    result = run_tests()
+    
+    # Exit with appropriate code
+    sys.exit(not result.wasSuccessful())

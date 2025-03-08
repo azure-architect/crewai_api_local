@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 
 # Import the necessary modules
 try:
-    from crew.clients.prompt_loader import get_prompt
+    from crew.interfaces.prompt_loader import get_prompt
     print("Successfully imported prompt_loader module")
 except ImportError as e:
     print(f"Error: Could not import prompt_loader module. Details: {e}")
