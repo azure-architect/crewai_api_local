@@ -1,0 +1,42 @@
+
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - SUPABASE_URL=${SUPABASE_URL:-http://192.168.0.120:3000}
+      - SUPABASE_KEY=${SUPABASE_KEY:-your-supabase-key}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-your-openai-key}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-your-anthropic-key}
+      - OLLAMA_API_BASE=${OLLAMA_API_BASE:-http://192.168.0.201:11434}
+      - OLLAMA_MODEL=${OLLAMA_MODEL:-llama3}
+      - DATABASE_URL=${DATABASE_URL:-postgresql://postgres:postgres@192.168.0.120:5432/postgres}
+    volumes:
+      - ./:/app
+    # No dependency on supabase since we're using external instance
+    restart: unless-stopped
+    networks:
+      - crewai-network
+
+  # Supabase service is commented out as you're using an external instance at 192.168.0.120:3000
+  # supabase:
+  #   image: supabase/supabase-local
+  #   ports:
+  #     - "3000:3000"  # API
+  #     - "5432:5432"  # PostgreSQL
+  #   environment:
+  #     - POSTGRES_PASSWORD=postgres
+  #   volumes:
+  #     - supabase-data:/var/lib/postgresql/data
+  #   networks:
+  #     - crewai-network
+
+networks:
+  crewai-network:
+    driver: bridge
+
+volumes:
+  supabase-data:
