@@ -1,0 +1,21 @@
+template_id: "section_analyzer_standard"
+template_text: |
+  Analyze the following content and identify its structure, sections, and organization.
+  
+  CONTENT:
+  {content}
+  
+  OUTPUT INSTRUCTIONS:
+  Provide a JSON response with the following structure:
+  - document_type: The type of document analyzed
+  - sections: An array of section objects with:
+    * section_title: The title or heading of the section
+    * section_level: The heading level (1 for main heading, 2 for subheading, etc.)
+    * word_count: Approximate word count for the section
+    * key_points: 1-3 key points from the section
+  - structure_quality: Assessment of how well-structured the document is (Poor, Adequate, Good, Excellent)
+  - suggestions: 1-3 suggestions for improving the document structure
+  
+  Format your response as valid JSON only.
+description: "Analyze document structure, sections, and organization"
+version: "1.0"

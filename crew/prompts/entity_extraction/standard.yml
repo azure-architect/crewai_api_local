@@ -1,0 +1,23 @@
+template_id: "entity_extraction_standard"
+template_text: |
+  Analyze the following content and extract named entities, their categories, and relationships.
+  
+  CONTENT:
+  {content}
+  
+  OUTPUT INSTRUCTIONS:
+  Provide a JSON response with the following structure:
+  - people: An array of person entities identified
+  - organizations: An array of organization entities identified
+  - locations: An array of location entities identified
+  - dates: An array of date or time entities identified
+  - products: An array of product entities identified
+  - concepts: An array of concept entities identified
+  - relationships: An array of relationship objects with:
+    * source: The source entity
+    * target: The target entity
+    * relationship_type: The type of relationship
+  
+  Format your response as valid JSON only.
+description: "Extract named entities and their relationships from content"
+version: "1.0"

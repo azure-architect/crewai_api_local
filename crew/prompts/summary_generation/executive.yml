@@ -1,0 +1,18 @@
+template_id: "summary_generation_executive"
+template_text: |
+  Generate an executive summary of the following content, highlighting key points, insights, and recommendations.
+  
+  CONTENT:
+  {content}
+  
+  OUTPUT INSTRUCTIONS:
+  Provide a JSON response with the following structure:
+  - executive_summary: A concise 2-3 paragraph executive summary
+  - key_points: 3-5 bullet points covering the most important information
+  - insights: 2-3 key insights derived from the content
+  - recommendations: 2-3 actionable recommendations based on the content
+  - business_implications: Brief overview of business implications
+  
+  Format your response as valid JSON only.
+description: "Generate executive summaries of content for business leaders"
+version: "1.0"

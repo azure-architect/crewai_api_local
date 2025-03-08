@@ -1,0 +1,21 @@
+template_id: "content_repurposing_standard"
+template_text: |
+  Analyze the following content and identify opportunities for repurposing it into different formats or channels.
+  
+  CONTENT:
+  {content}
+  
+  OUTPUT INSTRUCTIONS:
+  Provide a JSON response with the following structure:
+  - content_type: The original content type
+  - repurposing_opportunities: An array of repurposing opportunity objects with:
+    * format: The suggested format for repurposing (blog, social media, video script, etc.)
+    * audience: The target audience for this format
+    * key_elements: Content elements that would work well in this format
+    * modification_needed: Level of modification required (Low, Medium, High)
+    * value_potential: Potential value of this repurposing (Low, Medium, High)
+  - recommended_approach: The single most promising repurposing opportunity
+  
+  Format your response as valid JSON only.
+description: "Identify content repurposing opportunities and strategies"
+version: "1.0"

@@ -1,0 +1,18 @@
+template_id: "theme_extraction_marketing"
+template_text: |
+  Analyze the following marketing content and extract brand themes, messaging frameworks, and positioning elements.
+  
+  CONTENT:
+  {content}
+  
+  OUTPUT INSTRUCTIONS:
+  Provide a JSON response with the following structure:
+  - brand_story: The central narrative or story being conveyed
+  - value_themes: Key themes around value proposition
+  - emotional_appeals: Emotional themes or appeals being made
+  - positioning: How the product/service is being positioned
+  - target_audience: Themes related to the intended audience
+  
+  Format your response as valid JSON only.
+description: "Extract marketing themes and messaging from content"
+version: "1.0"

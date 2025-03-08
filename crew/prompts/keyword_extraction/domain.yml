@@ -1,0 +1,17 @@
+template_id: "keyword_extraction_domain"
+template_text: |
+  Analyze the following domain-specific content and extract domain keywords, concepts, and terminology.
+  
+  CONTENT:
+  {content}
+  
+  OUTPUT INSTRUCTIONS:
+  Provide a JSON response with the following structure:
+  - domain_name: The primary domain/field this content belongs to
+  - core_concepts: A list of 3-5 fundamental concepts in this domain
+  - domain_terminology: A list of specialized terms specific to this domain
+  - key_entities: Important entities relevant to this domain
+  
+  Format your response as valid JSON only.
+description: "Extract domain-specific keywords and concepts"
+version: "1.0"

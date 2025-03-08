@@ -1,0 +1,16 @@
+template_id: "keyword_extraction_standard"
+template_text: |
+  Analyze the following content and extract important keywords, phrases, and concepts.
+  
+  CONTENT:
+  {content}
+  
+  OUTPUT INSTRUCTIONS:
+  Provide a JSON response with the following structure:
+  - primary_keywords: A list of the 5-7 most important general keywords
+  - secondary_keywords: A list of 8-12 additional relevant keywords
+  - technical_terms: A list of specialized technical terms or jargon
+  
+  Format your response as valid JSON only.
+description: "Extract standard keywords and phrases from general content"
+version: "1.0"

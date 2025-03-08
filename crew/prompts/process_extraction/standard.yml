@@ -1,0 +1,23 @@
+template_id: "process_extraction_standard"
+template_text: |
+  Analyze the following content and identify any processes, workflows, procedures, or step-by-step instructions.
+  
+  CONTENT:
+  {content}
+  
+  OUTPUT INSTRUCTIONS:
+  Provide a JSON response with the following structure:
+  - has_processes: Boolean indicating if the content contains processes
+  - processes: An array of process objects with the following properties:
+    * process_name: A descriptive name for the process
+    * steps_count: The number of steps in the process
+    * is_complete: Boolean indicating if the process description is complete
+    * complexity: The complexity level (Low, Medium, High)
+    * description: A brief description of what the process accomplishes
+  - workflows: An array of workflow objects with:
+    * workflow_name: A descriptive name for the workflow
+    * description: What the workflow accomplishes
+  
+  Format your response as valid JSON only.
+description: "Extract processes, workflows, and procedural information from content"
+version: "1.0"

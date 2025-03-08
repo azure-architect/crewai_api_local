@@ -1,0 +1,17 @@
+template_id: "theme_extraction_technical"
+template_text: |
+  Analyze the following technical content and extract technical themes, paradigms, and architectural concepts.
+  
+  CONTENT:
+  {content}
+  
+  OUTPUT INSTRUCTIONS:
+  Provide a JSON response with the following structure:
+  - technical_paradigm: The overarching technical paradigm or approach
+  - core_technologies: Key technologies or technical components mentioned
+  - architectural_patterns: Any architectural patterns or design principles
+  - technical_challenges: Key technical challenges addressed
+  
+  Format your response as valid JSON only.
+description: "Extract technical themes and paradigms from content"
+version: "1.0"

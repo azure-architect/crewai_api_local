@@ -1,0 +1,22 @@
+template_id: "code_analysis_standard"
+template_text: |
+  Analyze the following code and provide a detailed assessment of its structure, functionality, and quality.
+  
+  CODE:
+  {content}
+  
+  OUTPUT INSTRUCTIONS:
+  Provide a JSON response with the following structure:
+  - language: The programming language identified
+  - purpose: The main purpose or functionality of the code
+  - components: Key functions, classes, or modules identified
+  - complexity: Assessment of code complexity (Low, Medium, High)
+  - quality_issues: Array of potential quality issues or improvements with:
+    * issue: Description of the issue
+    * importance: Priority level (Low, Medium, High)
+    * suggestion: Recommended fix or improvement
+  - strengths: Array of code strengths or good practices identified
+  
+  Format your response as valid JSON only.
+description: "Analyze code structure, quality, and functionality"
+version: "1.0"

@@ -1,0 +1,17 @@
+template_id: "theme_extraction_standard"
+template_text: |
+  Analyze the following content and extract the primary themes, concepts, and frameworks.
+  
+  CONTENT:
+  {content}
+  
+  OUTPUT INSTRUCTIONS:
+  Provide a JSON response with the following structure:
+  - primary_theme: The single most dominant theme of the content
+  - secondary_themes: 2-4 supporting themes present in the content
+  - business_domains: Business domains this content relates to
+  - frameworks: Any methodologies, frameworks, or structured approaches mentioned
+  
+  Format your response as valid JSON only.
+description: "Extract standard thematic information from content"
+version: "1.0"

@@ -1,0 +1,17 @@
+template_id: "keyword_extraction_technical"
+template_text: |
+  Analyze the following technical content and extract specialized technical keywords, terms, and concepts.
+  
+  CONTENT:
+  {content}
+  
+  OUTPUT INSTRUCTIONS:
+  Provide a JSON response with the following structure:
+  - technical_keywords: A list of 5-7 critical technical terms
+  - technical_concepts: A list of 3-5 technical concepts or methodologies
+  - industry_jargon: A list of specialized industry terminology
+  - abbreviations: A list of technical abbreviations with their meanings
+  
+  Format your response as valid JSON only.
+description: "Extract technical keywords and terms from specialized content"
+version: "1.0"

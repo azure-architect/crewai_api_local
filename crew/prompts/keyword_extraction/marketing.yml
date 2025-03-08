@@ -1,0 +1,17 @@
+template_id: "keyword_extraction_marketing"
+template_text: |
+  Analyze the following marketing content and extract branding keywords, value propositions, and marketing terminology.
+  
+  CONTENT:
+  {content}
+  
+  OUTPUT INSTRUCTIONS:
+  Provide a JSON response with the following structure:
+  - branding_keywords: A list of 5-7 terms related to brand identity
+  - value_propositions: A list of key value propositions identified
+  - audience_terms: Keywords related to target audience
+  - marketing_jargon: Industry-specific marketing terminology
+  
+  Format your response as valid JSON only.
+description: "Extract marketing-focused keywords from content"
+version: "1.0"

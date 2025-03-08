@@ -1,0 +1,19 @@
+template_id: "summary_generation_technical"
+template_text: |
+  Generate a technical summary of the following content, highlighting technical details, architecture, and implementation considerations.
+  
+  CONTENT:
+  {content}
+  
+  OUTPUT INSTRUCTIONS:
+  Provide a JSON response with the following structure:
+  - technical_summary: A concise 2-3 paragraph technical summary
+  - system_components: Key components or modules identified
+  - technical_requirements: Technical requirements or dependencies
+  - implementation_notes: Important implementation considerations
+  - technical_limitations: Any limitations or constraints identified
+  - next_steps: Suggested technical next steps or areas for improvement
+  
+  Format your response as valid JSON only.
+description: "Generate technical summaries focusing on implementation details"
+version: "1.0"
