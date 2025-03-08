@@ -38,31 +38,29 @@ def create_summary_generation_tool(llm_client):
         response = llm_client.generate(formatted_prompt)
         
         # Parse the response to extract JSON
-        try:
-            # Find JSON in the response
-            json_start = response.find('{')
-            json_end = response.rfind('}') + 1
-            if json_start >= 0 and json_end > 0:
-                json_str = response[json_start:json_end]
-                return json.loads(json_str)
-            else:
-                # Fallback if proper JSON not found
-                return {
-                    summary_key = f"{variant}_summary"
-                    summary_key: "",
-                    "key_points": [],
-                    
-                    "error": "Could not extract structured data from LLM response"
-                }
-        except Exception as e:
-            print(f"Error parsing LLM response: {e}")
+    try:
+        # Find JSON in the response
+        json_start = response.find('{')
+        json_end = response.rfind('}') + 1
+        if json_start >= 0 and json_end > 0:
+            json_str = response[json_start:json_end]
+            return json.loads(json_str)
+        else:
+            # Fallback if proper JSON not found
+            summary_key = f"{variant}_summary"
             return {
-                summary_key = f"{variant}_summary",
-                    summary_key: "",
-                    "key_points": [],
-                    
-                "error": f"Error processing response: {str(e)}"
+                summary_key: "",
+                "key_points": [],
+                "error": "Could not extract structured data from LLM response"
             }
+    except Exception as e:
+        print(f"Error parsing LLM response: {e}")
+        summary_key = f"{variant}_summary"
+        return {
+            summary_key: "",
+            "key_points": [],
+            "error": f"Error processing response: {str(e)}"
+        }
     
     # Create and return the tool using BaseTool factory
     return BaseTool.create_tool(
