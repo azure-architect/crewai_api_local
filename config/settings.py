@@ -12,6 +12,10 @@ class Settings(BaseSettings):
     supabase_url: str
     supabase_key: str
     
+    # file_watche settings
+    watcher_path: Optional[str] = None  # Matches your env variable name
+    watch_poll_interval: int = 5
+    
     # Application settings
     debug: bool = False
     
